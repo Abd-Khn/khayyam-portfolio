@@ -4,33 +4,24 @@ import gsap from "gsap";
 
 const pages = [
   { name: "Home", id: "Home" },
-  { name: "Info", id: "About" },
+  { name: "About", id: "About" },
   { name: "Work", id: "Content" },
-  { name: "Partners", id: "Collaborations" },
+  { name: "Collaborations", id: "Collaborations" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [active, setActive] = useState("Home");
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > 100) {
+      if (currentScrollY > 50) {
         setScrolled(true);
-        if (currentScrollY > lastScrollY) {
-          setHidden(true); // scrolling down
-        } else {
-          setHidden(false); // scrolling up
-        }
       } else {
         setScrolled(false);
-        setHidden(false);
       }
-      setLastScrollY(currentScrollY);
 
       // Active Section logic
       pages.forEach(page => {
@@ -46,7 +37,7 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   const scrollToSection = (id, name) => {
     setActive(name);
@@ -56,52 +47,43 @@ export default function Navbar() {
     }
   };
 
-  // Magnetic Button Effect logic could go here or via CSS wrapper
-  const handleMagneticMove = (e) => {
-    const item = e.currentTarget;
-    const rect = item.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-
-    gsap.to(item, {
-      x: x * 0.3,
-      y: y * 0.3,
-      duration: 0.5,
-      ease: "power3.out"
+  const handleMouseEnter = (e) => {
+    gsap.to(e.currentTarget, {
+      y: -2,
+      scale: 1.05,
+      duration: 0.3,
+      ease: "power2.out"
     });
   };
 
-  const handleMagneticLeave = (e) => {
+  const handleMouseLeave = (e) => {
     gsap.to(e.currentTarget, {
-      x: 0,
       y: 0,
-      duration: 0.7,
-      ease: "elastic.out(1, 0.3)"
+      scale: 1,
+      duration: 0.3,
+      ease: "power2.out"
     });
   };
 
   return (
-    <header className={`navbar-modern ${scrolled ? "scrolled" : ""} ${hidden ? "hidden" : ""}`}>
-      <div className="navbar-pill">
+    <header className={`modern-header ${scrolled ? "scrolled" : ""}`}>
+      <div className="header-container">
 
         <div
-          className="nav-logo hover-target"
+          className="header-logo hover-target"
           onClick={() => scrollToSection("Home", "Home")}
-          onMouseMove={handleMagneticMove}
-          onMouseLeave={handleMagneticLeave}
         >
-          <div className="logo-dot"></div>
-          <span>KHAYYAM SAJID</span>
+          KHAYYAM SAJJID.
         </div>
 
-        <nav className="nav-links desktop-only">
+        <nav className="header-nav desktop-only">
           {pages.map((p) => (
             <button
               key={p.name}
-              className={`nav-link hover-target ${active === p.name ? "active" : ""}`}
+              className={`header-link hover-target ${active === p.name ? "active" : ""}`}
               onClick={() => scrollToSection(p.id, p.name)}
-              onMouseMove={handleMagneticMove}
-              onMouseLeave={handleMagneticLeave}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               {p.name}
             </button>
@@ -109,12 +91,12 @@ export default function Navbar() {
         </nav>
 
         <button
-          className="nav-cta hover-target magnet-button"
+          className="header-cta hover-target"
           onClick={() => scrollToSection("Contact", "Contact")}
-          onMouseMove={handleMagneticMove}
-          onMouseLeave={handleMagneticLeave}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
-          <span>Get in touch</span>
+          Let's Talk
         </button>
 
       </div>
