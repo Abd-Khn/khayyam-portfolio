@@ -1,0 +1,126 @@
+.about-section {
+  background-color: var(--black);
+  padding: 15vh 0;
+  position: relative;
+  z-index: 5;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 8vw;
+  align-items: start;
+}
+
+/* Left - Sticky column */
+.about-left {
+  height: 100vh;
+  /* space to scrub */
+}
+
+.about-left-sticky {
+  height: auto;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  top: 25vh;
+  /* Center it in the viewport when sticky starts */
+}
+
+.section-label-top {
+  font-family: 'Geist-Medium', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 4vh;
+}
+
+.about-title {
+  font-family: 'Geist-Bold', sans-serif;
+  font-size: clamp(3rem, 5vw, 6rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  color: var(--white);
+  margin-bottom: 8vh;
+  margin-left: -5px;
+  /* Alignment fix for huge font */
+}
+
+.about-stats {
+  display: flex;
+  gap: 40px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-card h3 {
+  font-family: 'Geist-Bold', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 4rem);
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat-card p {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+  font-family: 'Geist-Medium', sans-serif;
+}
+
+/* Right - Scroll column */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 15vh;
+  padding-bottom: 20vh;
+}
+
+.about-intro {
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
+  line-height: 1.3;
+  color: var(--white);
+  font-family: 'Geist-Medium', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.about-description {
+  font-size: clamp(2rem, 4vw, 5rem);
+  /* Huge statement typography */
+  line-height: 1.1;
+  color: var(--white);
+  font-family: 'Geist-Bold', sans-serif;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin-top: -10vh;
+  /* Tighter spacing */
+}
+
+/* Mobile Fallback */
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 10vh;
+  }
+
+  .about-left {
+    height: auto;
+  }
+
+  .about-left-sticky {
+    position: static !important;
+    top: 0;
+  }
+
+  .about-description {
+    font-size: clamp(2rem, 8vw, 4rem);
+    margin-top: 0;
+  }
+}

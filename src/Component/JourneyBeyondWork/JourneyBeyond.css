@@ -1,0 +1,243 @@
+.Section6MainContainer {
+  padding-left: 146px;
+  padding-right: 108px;
+  padding-top: 107px;
+}
+.JourneyBeyongWorkContainer {
+  background-image: url(/public/Images/Faq/BeyondJourney.webp);
+  background-size: 100% 100%;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-top: 66px;
+  padding-bottom: 90px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.JourneySectionNumber {
+  font-family: WorkSans-Medium;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  leading-trim: CAP_HEIGHT;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  text-align: right;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.BeyondWorkOriginalSection {
+  font-family: WorkSans-Medium;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  leading-trim: CAP_HEIGHT;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.BeyondWorkBottomContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+.BeyondWorkBottomContainer h2 {
+  font-family: WorkSans-Medium;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 72px;
+  leading-trim: NONE;
+  line-height: 102%;
+  letter-spacing: -0.03em;
+  text-align: center;
+  color: #ffffff;
+}
+.BeyondWorkBottomContainer p {
+  font-family: WorkSans;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  leading-trim: NONE;
+  line-height: 150%;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #ffffff;
+  max-width: 722px;
+  width: 100%;
+}
+@media (max-width: 1336px) {
+
+}
+@media (max-width: 1199px) {
+  .Section6MainContainer {
+
+    padding-top: 40px;
+  }
+}
+@media (max-width: 1024px) {
+  .BeyondWorkBottomContainer h2 {
+    font-size: 60px;
+  }
+  .JourneyBeyongWorkContainer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+@media (max-width: 900px) {
+  .BeyondWorkBottomContainer h2 {
+    font-size: 50px;
+  }
+  .JourneyBeyongWorkContainer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .BeyondWorkBottomContainer p {
+    font-size: 14px;
+    max-width: 650px;
+  }
+}
+@media (max-width: 768px) {
+  .BeyondWorkBottomContainer h2 {
+    font-size: 42px;
+  }
+  .BeyondWorkOriginalSection {
+    font-size: 16px;
+  }
+  .JourneySectionNumber {
+    font-size: 16px;
+  }
+  .BeyondWorkBottomContainer P {
+    font-size: 12px;
+    max-width: 590px;
+  }
+  .BeyondWorkBottomContainer {
+    gap: 15px;
+  }
+  .JourneyBeyongWorkContainer {
+    gap: 12px;
+  }
+
+}
+@media (max-width: 550px) {
+ 
+  .BeyondWorkBottomContainer h2 {
+    font-size: 30px;
+  }
+  .BeyondWorkOriginalSection {
+    font-size: 14px;
+  }
+  .JourneySectionNumber {
+    font-size: 14px;
+  }
+  .JourneyBeyongWorkContainer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media (max-width: 440px) {
+  .BeyondWorkBottomContainer h2 {
+    font-size: 28px;
+  }
+  .BeyondWorkBottomContainer p {
+    font-size: 12px;
+  }
+  .BeyondWorkOriginalSection {
+    font-size: 12px;
+  }
+  .JourneySectionNumber {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 340px) {
+  .BeyondWorkBottomContainer h2 {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1500px) {
+ 
+  .JourneyBeyongWorkContainer {
+    padding-top: 74.25px;
+    padding-bottom: 100.27px;
+  }
+  .BeyondWorkBottomContainer {
+    gap: 31.5px;
+  }
+  .BeyondWorkBottomContainer h2 {
+    font-size: 81px;
+  }
+  .BeyondWorkBottomContainer p {
+    font-size: 18px;
+    max-width: 812.25px;
+  }
+}
+
+
+
+@media (max-width:1300px) {
+.Section6MainContainer {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media (max-width:1200px) {
+.Section6MainContainer {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
+
+@media (max-width:1100px) {
+
+
+.Section6MainContainer {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+
+@media (max-width:1050px) {
+
+.Section6MainContainer {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media (max-width:900px) {
+
+
+.Section6MainContainer {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (max-width:650px) {
+
+
+.Section6MainContainer {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+
+@media (max-width:500px) {
+
+
+.Section6MainContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

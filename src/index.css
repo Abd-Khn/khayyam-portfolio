@@ -1,0 +1,251 @@
+:root {
+  /* Ultra-Premium Dark Core Colors */
+  --bg-primary: #050505;
+  --bg-secondary: #0d0d0d;
+  --text-primary: #f2f2f2;
+  --text-secondary: rgba(242, 242, 242, 0.4);
+  --accent: #E3FF00;
+  --accent-muted: rgba(227, 255, 0, 0.1);
+  --border-color: rgba(255, 255, 255, 0.05);
+
+  --black: #050505;
+  --white: #f2f2f2;
+  --dark-grey: #0d0d0d;
+  --brand: #E3FF00;
+
+  font-family: 'Geist', -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--black);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto;
+  /* Remove smooth to let Lenis handle logic */
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Geist', sans-serif;
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background-color: var(--white);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transform: translate3d(-50%, -50%, 0);
+  margin-left: -6px;
+  margin-top: -6px;
+  transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1), height 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.custom-cursor.hovered {
+  width: 40px;
+  height: 40px;
+  background-color: var(--white);
+  margin-left: -20px;
+  margin-top: -20px;
+}
+
+/* Noise overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Smooth Scrolling class for Lenis */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+a {
+  font-weight: 500;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+a:hover,
+button:hover {
+  cursor: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Geist-Bold', sans-serif;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(3rem, 12vw, 12rem);
+}
+
+h2 {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* Typography */
+@font-face {
+  font-family: 'Geist';
+  src: url('/Fonts/Geist-Regular.ttf') format('truetype');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Geist-Medium';
+  src: url('/Fonts/Geist-Medium.ttf') format('truetype');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Geist-SemiBold';
+  src: url('/Fonts/Geist-SemiBold.ttf') format('truetype');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Geist-Bold';
+  src: url('/Fonts/Geist-Bold.ttf') format('truetype');
+  font-display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 4vw;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #fff 0%, rgb(100, 100, 100) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.button-primary {
+  background: var(--accent);
+  color: var(--black);
+  padding: 18px 36px;
+  border-radius: 100px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 14px;
+  border: none;
+  cursor: none;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-primary::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--white);
+  transition: top 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 1;
+}
+
+.button-primary:hover::after {
+  top: 0;
+}
+
+.button-primary span {
+  position: relative;
+  z-index: 2;
+  transition: color 0.4s ease;
+}
+
+.button-primary:hover span {
+  color: var(--black);
+}
+
+.section-padding {
+  padding: 15vw 0;
+}
