@@ -34,8 +34,11 @@ const Mid_Cards = () => {
   const scrollWrapperRef = useRef(null);
 
   useEffect(() => {
+    const isSmallDevice = () => window.matchMedia("(max-width: 768px)").matches;
+
+    if (isSmallDevice()) return; // Vertical stack on mobile, no horizontal scroll
+
     const ctx = gsap.context(() => {
-      // Horizontal Scroll Magic
       const sections = gsap.utils.toArray(".horizontal-card");
 
       gsap.to(sections, {
@@ -47,10 +50,9 @@ const Mid_Cards = () => {
           scrub: 1,
           snap: 1 / (sections.length - 1),
           start: "top top",
-          end: "+=3000", // Length of the pin scroll
+          end: "+=3000",
         }
       });
-
     }, containerRef);
 
     return () => ctx.revert();
@@ -59,9 +61,9 @@ const Mid_Cards = () => {
   return (
     <section className="mid-cards-section" id="Content" ref={containerRef}>
 
-      <div className="watermark-bg">
+      {/* <div className="watermark-bg">
         FOCUS
-      </div>
+      </div> */}
 
       <div className="horizontal-scroll-wrapper" ref={scrollWrapperRef}>
 
